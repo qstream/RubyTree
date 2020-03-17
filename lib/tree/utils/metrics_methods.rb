@@ -37,7 +37,7 @@
 #
 
 require_relative '../../../lib/tree'
-require 'structured_warnings'
+# require 'structured_warnings'
 
 module Tree::Utils
   # Provides utility functions to measure various tree metrics.
@@ -129,9 +129,8 @@ module Tree::Utils
       #
       # @see #node_depth
       def depth
-        warn StructuredWarnings::DeprecatedMethodWarning,
-             'This method is deprecated.  '\
-             'Please use node_depth() or node_height() instead (bug # 22535)'
+        warn "This method is deprecated.  "\
+             "Please use node_depth() or node_height() instead (bug # 22535) #{caller[0]}"
 
         return 1 if is_leaf?
         1 + @children.collect { |child| child.depth }.max

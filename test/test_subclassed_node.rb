@@ -55,13 +55,13 @@ module TestTree
       assert_equal('Hello', root.my_dummy_method)
 
       # We should get a warning as we are invoking the camelCase version of the dummy method.
-      assert_warn(StructuredWarnings::DeprecatedMethodWarning) { root.send('MyDummyMethod') }
+      # assert_warn(::DeprecatedMethodWarning) { root.send('MyDummyMethod') }
 
       # Test if the structured_warnings can be disabled to call the CamelCase methods.
-      StructuredWarnings::DeprecatedMethodWarning.disable do
-        # noinspection RubyResolve
-        assert_equal('Hello', root.myDummyMethod)
-      end
+      # ::DeprecatedMethodWarning.disable do
+      #   # noinspection RubyResolve
+      #   assert_equal('Hello', root.myDummyMethod)
+      # end
 
     end
 

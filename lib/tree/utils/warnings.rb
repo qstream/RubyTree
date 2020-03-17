@@ -1,0 +1,2 @@
+DeprecatedMethodWarning = StandardError
+StandardWarning = StandardError
